@@ -3551,6 +3551,14 @@ h1, h2, h3, h4, h5, h6 {
     .burger-menu {
         padding: 0px;
     }
+
+    .input-action-button {
+        width: 2px;
+    }
+
+    .input-wrapper {
+        padding: 2px 0px;
+    }
 }
 
 /* Formulaire de recherche - bouton en icône */
