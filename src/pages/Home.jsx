@@ -598,12 +598,7 @@ const Home = () => {
                         </Link>
                     </div>
 
-                    {/* Menu Burger pour mobile */}
-                    <div className={`${styles["burger-menu"]} ${isMobileMenuOpen ? styles.active : ''}`} onClick={toggleMobileMenu}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    
 
                     <div className={styles["auth-section"]}>
                         <button
@@ -660,6 +655,14 @@ const Home = () => {
                             </>
                         )}
                     </div>
+
+                    {/* Menu Burger pour mobile */}
+                    <div className={`${styles["burger-menu"]} ${isMobileMenuOpen ? styles.active : ''}`} onClick={toggleMobileMenu}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
                 </nav>
             </header>
 

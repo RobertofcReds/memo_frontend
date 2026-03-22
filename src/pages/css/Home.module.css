@@ -3669,6 +3669,10 @@ h1, h2, h3, h4, h5, h6 {
     .search-button i {
         font-size: 1.1rem;
     }
+
+    .typing-container {
+        margin: 2px auto 3px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -3690,7 +3694,7 @@ h1, h2, h3, h4, h5, h6 {
     .search-button i {
         font-size: 1rem;
     }
-}
+}   
 
 /* Pour le mode connecté - icône seulement sur mobile */
 @media (max-width: 768px) {
@@ -3709,6 +3713,10 @@ h1, h2, h3, h4, h5, h6 {
     
     .auth-button-on i:last-child {
         display: none;
+    }
+
+    .typing-container {
+        margin: 2px auto 3px;
     }
 }
 
