@@ -3703,6 +3703,10 @@ h1, h2, h3, h4, h5, h6 {
     .burger-menu {
         padding: 0px;
     }
+
+    .search-form {
+        margin: 0 auto 0;
+    }
 }
 
 /* ============================================
@@ -3815,7 +3819,7 @@ h1, h2, h3, h4, h5, h6 {
     
     /* Formulaire de recherche */
     .search-form {
-        margin: 0 auto 20px;
+        margin: 0 auto 0;
     }
     
     .search-icon {
