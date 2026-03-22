@@ -3444,33 +3444,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Très petits mobiles (max-width: 380px) */
-@media (max-width: 380px) {
-    .hero h1 {
-        font-size: 1.4rem;
-    }
-    
-    .typing-text {
-        font-size: 0.85rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.4rem;
-    }
-    
-    .logo-img {
-        height: 32px;
-        width: 32px;
-    }
-    
-    .logo-text {
-        font-size: 1.1rem;
-    }
-    
-    .region-image-container {
-        height: 160px;
-    }
-}
+
 
 /* Support iPhone avec notch */
 @supports (padding: max(0px)) {
@@ -3495,31 +3469,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Écrans pliables */
-@media (max-width: 280px) {
-    .hero h1 {
-        font-size: 1.2rem;
-    }
-    
-    .typing-text {
-        font-size: 0.75rem;
-    }
-    
-    .search-input {
-        font-size: 0.85rem;
-        padding: 10px;
-    }
-    
-    .search-button {
-        padding: 8px;
-        font-size: 0.8rem;
-    }
-    
-    .region-tag {
-        font-size: 0.6rem;
-        padding: 2px 6px;
-    }
-}
+
 
 /* ============================================
    STYLES CORRIGÉS POUR HEADER ET RECHERCHE
@@ -3727,6 +3677,976 @@ h1, h2, h3, h4, h5, h6 {
     
     .auth-button-on i:first-child {
         font-size: 1.1rem;
+    }
+}
+
+/* ============================================
+   TRÈS PETITS MOBILES (380px et moins)
+   ============================================ */
+
+/* Pour les écrans très petits (380px et moins) */
+@media (max-width: 380px) {
+    /* Header - encore plus compact */
+    .header {
+        padding: 8px 3%;
+        min-height: 55px;
+    }
+    
+    .logo-img {
+        height: 32px;
+        width: 32px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .logo {
+        gap: 6px;
+    }
+    
+    .burger-menu {
+        gap: 4px;
+        padding: 6px;
+        margin-left: 6px;
+    }
+    
+    .burger-menu span {
+        width: 18px;
+        height: 2px;
+    }
+    
+    .burger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+    }
+    
+    .burger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px);
+    }
+    
+    /* Boutons auth */
+    .auth-section {
+        gap: 5px;
+    }
+    
+    .auth-button {
+        padding: 5px 8px;
+        min-width: 32px;
+    }
+    
+    .auth-button i {
+        font-size: 0.9rem;
+    }
+    
+    .ai-button {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    .auth-button-on {
+        padding: 5px 8px;
+    }
+    
+    .auth-button-on i:first-child {
+        font-size: 0.9rem;
+    }
+    
+    /* Navigation mobile */
+    .nav-links {
+        width: 180px;
+        padding: 12px;
+        gap: 8px;
+    }
+    
+    .nav-link {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .nav-link i {
+        font-size: 0.85rem;
+    }
+    
+    /* Hero section */
+    .hero {
+        min-height: 480px;
+        padding: 60px 0 40px;
+    }
+    
+    .hero h1 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+    
+    .typing-text {
+        font-size: 0.75rem;
+        min-height: 1.8rem;
+    }
+    
+    .typing-container {
+        margin: 10px auto 15px;
+    }
+    
+    /* Formulaire de recherche */
+    .search-form {
+        margin: 0 auto 20px;
+    }
+    
+    .search-icon {
+        padding: 0 8px;
+        font-size: 0.8rem;
+    }
+    
+    .search-input {
+        padding: 10px 0;
+        font-size: 0.8rem;
+        min-height: 42px;
+    }
+    
+    .search-input::placeholder {
+        font-size: 0.75rem;
+    }
+    
+    .search-button {
+        width: 38px;
+        min-width: 38px;
+    }
+    
+    .search-button i {
+        font-size: 0.9rem;
+    }
+    
+    .search-suggestions {
+        gap: 6px;
+        margin-top: 10px;
+    }
+    
+    .search-suggestions span {
+        font-size: 0.7rem;
+    }
+    
+    .search-tag {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+    }
+    
+    /* Statistiques */
+    .hero-stats {
+        max-width: 220px;
+        gap: 8px;
+        margin-top: 15px;
+    }
+    
+    .stat-item {
+        padding: 6px 12px;
+        gap: 8px;
+    }
+    
+    .stat-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+    
+    .stat-value {
+        font-size: 1.1rem;
+    }
+    
+    .stat-label {
+        font-size: 0.7rem;
+    }
+    
+    /* Sections */
+    .why-us-section,
+    .popular-regions,
+    .testimonials-section {
+        padding: 40px 3%;
+    }
+    
+    .section-header {
+        margin-bottom: 25px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .title-anime::after {
+        width: 60px;
+        height: 2px;
+        bottom: -6px;
+    }
+    
+    .subtitle-anime {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+    
+    /* Features */
+    .features-grid {
+        gap: 15px;
+    }
+    
+    .feature-card {
+        padding: 20px 16px;
+    }
+    
+    .feature-icon-wrapper {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 12px;
+    }
+    
+    .feature-icon {
+        font-size: 1.3rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .feature-card p {
+        font-size: 0.75rem;
+        margin-bottom: 12px;
+    }
+    
+    /* Regions */
+    .regions-grid {
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .region-image-container {
+        height: 150px;
+    }
+    
+    .region-badge {
+        top: 10px;
+        right: 10px;
+        padding: 3px 8px;
+        font-size: 0.65rem;
+    }
+    
+    .region-tags {
+        bottom: 8px;
+        left: 8px;
+        gap: 4px;
+    }
+    
+    .region-tag {
+        padding: 2px 6px;
+        font-size: 0.6rem;
+    }
+    
+    .region-content {
+        padding: 12px;
+    }
+    
+    .region-content h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+        gap: 6px;
+    }
+    
+    .region-content h3 i {
+        font-size: 0.85rem;
+    }
+    
+    .region-description {
+        font-size: 0.75rem;
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+    
+    .rating i {
+        font-size: 0.8rem;
+    }
+    
+    .rating-number {
+        font-size: 0.75rem;
+    }
+    
+    .explore-link {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .view-all-button {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+        padding: 14px;
+        min-width: 240px;
+    }
+    
+    .testimonial-quote {
+        font-size: 1.8rem;
+        top: 12px;
+        right: 12px;
+    }
+    
+    .testimonial-rating {
+        margin-bottom: 12px;
+    }
+    
+    .testimonial-rating .starAnimation {
+        font-size: 0.85rem;
+    }
+    
+    .testimonial-text {
+        font-size: 0.75rem;
+        margin-bottom: 14px;
+        line-height: 1.4;
+    }
+    
+    .author-avatar .avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+    
+    .author-name {
+        font-size: 0.85rem;
+    }
+    
+    .testimonials-pagination {
+        margin-top: 20px;
+        gap: 8px;
+    }
+    
+    .pagination-dot {
+        width: 6px;
+        height: 6px;
+    }
+    
+    /* CTA Sections */
+    .cta-section,
+    .user-cta-section {
+        padding: 40px 3%;
+    }
+    
+    .cta-content h2,
+    .user-cta-content h2 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .cta-content p,
+    .user-cta-content p {
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+    
+    .cta-buttons,
+    .user-cta-buttons {
+        max-width: 220px;
+        gap: 10px;
+    }
+    
+    .cta-button,
+    .user-cta-button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        min-height: 40px;
+        gap: 8px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding-top: 30px;
+    }
+    
+    .footer-main {
+        gap: 25px;
+        padding-bottom: 20px;
+    }
+    
+    .footer-logo-animation img {
+        height: 32px;
+        width: 32px;
+    }
+    
+    .footer-logo-text {
+        font-size: 1.3rem;
+    }
+    
+    .footer-description {
+        font-size: 0.75rem;
+        margin-bottom: 16px;
+    }
+    
+    .social-link {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .links-column h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+    }
+    
+    .links-column h3::after {
+        width: 25px;
+        height: 2px;
+    }
+    
+    .links-column ul li {
+        margin-bottom: 6px;
+    }
+    
+    .links-column a {
+        font-size: 0.75rem;
+        gap: 6px;
+    }
+    
+    .newsletter h4 {
+        font-size: 0.9rem;
+    }
+    
+    .newsletter-form {
+        padding: 1rem 0;
+    }
+    
+    .newsletter-input {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .newsletter-button {
+        width: 38px;
+    }
+    
+    .copyright {
+        font-size: 0.7rem;
+    }
+    
+    .footer-apps span {
+        font-size: 0.7rem;
+    }
+    
+    .app-button {
+        min-width: 120px;
+        padding: 4px 8px;
+    }
+    
+    .app-button i {
+        font-size: 1rem;
+    }
+    
+    .app-button strong {
+        font-size: 0.75rem;
+    }
+    
+    .app-button span {
+        font-size: 0.55rem;
+    }
+    
+    /* Chatbox */
+    .chatbox-container {
+        bottom: 70px;
+        right: 10px;
+    }
+    
+    .chatbox-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .chatbox-window {
+        width: 95vw;
+        max-width: 320px;
+        height: 65vh;
+        max-height: 450px;
+    }
+    
+    .chatbox-header {
+        padding: 12px;
+    }
+    
+    .chatbox-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .chatbox-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .chatbox-info p {
+        font-size: 0.7rem;
+    }
+    
+    .chatbox-messages {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .message-content {
+        padding: 8px 12px;
+    }
+    
+    .message-content p {
+        font-size: 0.75rem;
+    }
+    
+    .option-button {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .chatbox-input-container {
+        padding: 10px;
+    }
+    
+    .chatbox-input {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+    
+    .chatbox-send-button {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+    
+    /* Back to top */
+    .back-to-top {
+        bottom: 70px;
+        right: 10px;
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
+   ÉCRANS PLIABLES TRÈS PETITS (280px et moins)
+   ============================================ */
+
+@media (max-width: 280px) {
+    /* Header ultra compact */
+    .header {
+        padding: 6px 2%;
+        min-height: 48px;
+    }
+    
+    .logo-img {
+        height: 26px;
+        width: 26px;
+    }
+    
+    .logo-text {
+        font-size: 0.9rem;
+    }
+    
+    .logo {
+        gap: 4px;
+    }
+    
+    .burger-menu {
+        gap: 3px;
+        padding: 4px;
+    }
+    
+    .burger-menu span {
+        width: 14px;
+        height: 1.5px;
+    }
+    
+    .burger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(3px, 3px);
+    }
+    
+    .burger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(3px, -3px);
+    }
+    
+    /* Boutons auth */
+    .auth-button {
+        padding: 4px 6px;
+        min-width: 28px;
+    }
+    
+    .auth-button i {
+        font-size: 0.8rem;
+    }
+    
+    .ai-button {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .auth-button-on {
+        padding: 4px 6px;
+    }
+    
+    .auth-button-on i:first-child {
+        font-size: 0.8rem;
+    }
+    
+    /* Navigation mobile */
+    .nav-links {
+        width: 160px;
+        padding: 10px;
+    }
+    
+    .nav-link {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .nav-link i {
+        font-size: 0.75rem;
+    }
+    
+    /* Hero section */
+    .hero {
+        min-height: 420px;
+        padding: 50px 0 30px;
+    }
+    
+    .hero h1 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+    
+    .typing-text {
+        font-size: 0.65rem;
+        min-height: 1.5rem;
+    }
+    
+    .cursor {
+        margin-left: 2px;
+    }
+    
+    /* Formulaire de recherche */
+    .search-icon {
+        padding: 0 6px;
+        font-size: 0.7rem;
+    }
+    
+    .search-input {
+        padding: 8px 0;
+        font-size: 0.7rem;
+        min-height: 36px;
+    }
+    
+    .search-input::placeholder {
+        font-size: 0.65rem;
+    }
+    
+    .search-button {
+        width: 32px;
+        min-width: 32px;
+    }
+    
+    .search-button i {
+        font-size: 0.8rem;
+    }
+    
+    .search-suggestions {
+        gap: 4px;
+    }
+    
+    .search-suggestions span {
+        font-size: 0.6rem;
+    }
+    
+    .search-tag {
+        padding: 2px 6px;
+        font-size: 0.6rem;
+    }
+    
+    /* Statistiques */
+    .hero-stats {
+        max-width: 180px;
+        gap: 6px;
+    }
+    
+    .stat-item {
+        padding: 4px 8px;
+        gap: 6px;
+    }
+    
+    .stat-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+    
+    .stat-value {
+        font-size: 0.9rem;
+    }
+    
+    .stat-label {
+        font-size: 0.6rem;
+    }
+    
+    /* Sections */
+    .why-us-section,
+    .popular-regions,
+    .testimonials-section {
+        padding: 30px 2%;
+    }
+    
+    .section-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .title-anime::after {
+        width: 50px;
+        bottom: -4px;
+    }
+    
+    .subtitle-anime {
+        font-size: 0.7rem;
+    }
+    
+    /* Features */
+    .feature-card {
+        padding: 16px 12px;
+    }
+    
+    .feature-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 10px;
+    }
+    
+    .feature-icon {
+        font-size: 1.1rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 0.85rem;
+    }
+    
+    .feature-card p {
+        font-size: 0.65rem;
+    }
+    
+    /* Regions */
+    .region-image-container {
+        height: 130px;
+    }
+    
+    .region-badge {
+        padding: 2px 6px;
+        font-size: 0.55rem;
+    }
+    
+    .region-tag {
+        padding: 1px 4px;
+        font-size: 0.5rem;
+    }
+    
+    .region-content {
+        padding: 10px;
+    }
+    
+    .region-content h3 {
+        font-size: 0.85rem;
+        gap: 4px;
+    }
+    
+    .region-content h3 i {
+        font-size: 0.7rem;
+    }
+    
+    .region-description {
+        font-size: 0.65rem;
+        margin-bottom: 8px;
+    }
+    
+    .rating i {
+        font-size: 0.7rem;
+    }
+    
+    .rating-number {
+        font-size: 0.65rem;
+    }
+    
+    .explore-link {
+        padding: 4px 8px;
+        font-size: 0.65rem;
+    }
+    
+    .view-all-button {
+        padding: 6px 16px;
+        font-size: 0.75rem;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+        padding: 10px;
+        min-width: 220px;
+    }
+    
+    .testimonial-quote {
+        font-size: 1.4rem;
+        top: 8px;
+        right: 8px;
+    }
+    
+    .testimonial-rating .starAnimation {
+        font-size: 0.7rem;
+    }
+    
+    .testimonial-text {
+        font-size: 0.65rem;
+        margin-bottom: 10px;
+    }
+    
+    .author-avatar .avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+    
+    .author-name {
+        font-size: 0.75rem;
+    }
+    
+    /* CTA */
+    .cta-content h2,
+    .user-cta-content h2 {
+        font-size: 1rem;
+    }
+    
+    .cta-content p,
+    .user-cta-content p {
+        font-size: 0.7rem;
+    }
+    
+    .cta-buttons,
+    .user-cta-buttons {
+        max-width: 180px;
+    }
+    
+    .cta-button,
+    .user-cta-button {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+        min-height: 34px;
+    }
+    
+    /* Footer */
+    .footer-logo-animation img {
+        height: 28px;
+        width: 28px;
+    }
+    
+    .footer-logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .footer-description {
+        font-size: 0.65rem;
+    }
+    
+    .social-link {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .links-column h3 {
+        font-size: 0.85rem;
+    }
+    
+    .links-column a {
+        font-size: 0.65rem;
+    }
+    
+    .newsletter h4 {
+        font-size: 0.8rem;
+    }
+    
+    .newsletter-input {
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .newsletter-button {
+        width: 32px;
+    }
+    
+    .copyright {
+        font-size: 0.6rem;
+    }
+    
+    .app-button {
+        min-width: 100px;
+    }
+    
+    .app-button i {
+        font-size: 0.85rem;
+    }
+    
+    .app-button strong {
+        font-size: 0.65rem;
+    }
+    
+    /* Chatbox */
+    .chatbox-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+    
+    .chatbox-window {
+        max-width: 280px;
+        height: 60vh;
+    }
+    
+    .back-to-top {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        bottom: 65px;
+    }
+}
+
+/* Correction des éléments flottants pour très petits écrans */
+@media (max-width: 380px) {
+    .floating-leaf,
+    .floating-baobab,
+    .floating-wave {
+        display: none;
+    }
+}
+
+/* Ajustement des animations pour économiser les ressources sur petits écrans */
+@media (max-width: 380px) {
+    .anime-stat,
+    .anime-slide,
+    .feature-card,
+    .region-card,
+    .testimonial-card {
+        animation-duration: 0.3s;
+    }
+    
+    .hero-slide.active {
+        transition: opacity 0.6s ease-in-out;
+    }
+    
+    .stat-item:hover {
+        transform: none;
+    }
+    
+    .region-card:hover {
+        transform: translateY(-4px);
     }
 }
 
