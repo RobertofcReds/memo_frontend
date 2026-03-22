@@ -398,7 +398,9 @@ const Dashboard = () => {
         const handleScroll = () => {
             setShowBackToTop(window.scrollY > 300);
 
+            
             const sections = document.querySelectorAll(`.${styles["anime-section"]}`);
+            console.log(styles['anime-section'])
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
                 if (rect.top < window.innerHeight * 0.8) {
