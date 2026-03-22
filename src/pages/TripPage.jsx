@@ -845,7 +845,7 @@ const TripPage = () => {
                                             )}>
                                                 <div className={styles.timelineImage}>
                                                     <img
-                                                        src={`http://localhost:5000${item.image}`}
+                                                        src={`${process.env.REACT_APP_BACK_URL}${item.image}`}
                                                         alt={item.nom}
                                                         onError={(e) => {
                                                             e.target.src = 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';
@@ -906,7 +906,7 @@ const TripPage = () => {
                                         )}>
                                             <div className={styles.detailImage}>
                                                 <img
-                                                    src={`http://localhost:5000${item.image}`}
+                                                    src={`${process.env.REACT_APP_BACK_URL}${item.image}`}
                                                     alt={item.nom}
                                                     onError={(e) => {
                                                         e.target.src = 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';

@@ -288,7 +288,7 @@ const Favorites = () => {
     const fetchAllFavorites = async () => {
         try {
             // Utilisez la route correcte pour tous les favoris
-            const response = await axios.get(`http://localhost:5000/api/user/favorites-all/${userId}`, {
+            const response = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/favorites-all/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             console.log('📥 Tous les favoris reçus:', response.data);
@@ -314,12 +314,12 @@ const Favorites = () => {
             // Fallback: charger séparément sites et régions
             try {
                 // Charger les sites favoris
-                const sitesResponse = await axios.get(`http://localhost:5000/api/user/favorites/${userId}`, {
+                const sitesResponse = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/favorites/${userId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
                 // Charger les régions favorites
-                const regionsResponse = await axios.get(`http://localhost:5000/api/user/favorites-regions/${userId}`, {
+                const regionsResponse = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/favorites-regions/${userId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
@@ -361,17 +361,17 @@ const Favorites = () => {
 
                     if (entiteType === 'site') {
                         // Supprimer un site des favoris
-                        response = await axios.delete(`http://localhost:5000/api/user/favorites/${userId}/${entiteId}`, {
+                        response = await axios.delete(`${process.env.REACT_APP_BACK_URL}/api/user/favorites/${userId}/${entiteId}`, {
                             headers: { Authorization: `Bearer ${token}` }
                         });
                     } else if (entiteType === 'region') {
                         // Supprimer une région des favoris
-                        response = await axios.delete(`http://localhost:5000/api/user/favorites-regions/${userId}/${entiteId}`, {
+                        response = await axios.delete(`${process.env.REACT_APP_BACK_URL}/api/user/favorites-regions/${userId}/${entiteId}`, {
                             headers: { Authorization: `Bearer ${token}` }
                         });
                     } else {
                         // Route générique
-                        response = await axios.delete(`http://localhost:5000/api/user/favorite/${userId}/${favoriteId}`, {
+                        response = await axios.delete(`${process.env.REACT_APP_BACK_URL}/api/user/favorite/${userId}/${favoriteId}`, {
                             headers: { Authorization: `Bearer ${token}` }
                         });
                     }
@@ -604,7 +604,7 @@ const Favorites = () => {
                         <div className={styles["share-body"]}>
                             <div className={styles["share-preview"]}>
                                 <img
-                                    src={shareModal.image?.startsWith('http') ? shareModal.image : `http://localhost:5000${shareModal.image}`}
+                                    src={shareModal.image?.startsWith('http') ? shareModal.image : `${process.env.REACT_APP_BACK_URL}${shareModal.image}`}
                                     alt={shareModal.name}
                                     onError={(e) => {
                                         e.target.src = 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';
@@ -952,7 +952,7 @@ const Favorites = () => {
                                                 >
                                                     <div className={styles["card-image"]}>
                                                         <img
-                                                            src={item.image?.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                                                            src={item.image?.startsWith('http') ? item.image : `${process.env.REACT_APP_BACK_URL}${item.image}`}
                                                             alt={item.nom}
                                                             onError={(e) => {
                                                                 e.target.src = 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';
@@ -1106,7 +1106,7 @@ const Favorites = () => {
                                                 >
                                                     <div className={styles["card-image"]}>
                                                         <img
-                                                            src={item.image?.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                                                            src={item.image?.startsWith('http') ? item.image : `${process.env.REACT_APP_BACK_URL}${item.image}`}
                                                             alt={item.nom}
                                                             onError={(e) => {
                                                                 e.target.src = 'https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';
@@ -1265,7 +1265,7 @@ const Favorites = () => {
                                             {/* Même structure que dans la section sites au-dessus */}
                                             <div className={styles["card-image"]}>
                                                 <img
-                                                    src={item.image?.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                                                    src={item.image?.startsWith('http') ? item.image : `${process.env.REACT_APP_BACK_URL}${item.image}`}
                                                     alt={item.nom}
                                                     onError={(e) => {
                                                         e.target.src = 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';
@@ -1424,7 +1424,7 @@ const Favorites = () => {
                                             {/* Même structure que dans la section régions au-dessus */}
                                             <div className={styles["card-image"]}>
                                                 <img
-                                                    src={item.image?.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                                                    src={item.image?.startsWith('http') ? item.image : `${process.env.REACT_APP_BACK_URL}${item.image}`}
                                                     alt={item.nom}
                                                     onError={(e) => {
                                                         e.target.src = 'https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';

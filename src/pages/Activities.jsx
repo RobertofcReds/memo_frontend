@@ -427,7 +427,7 @@ const Activities = () => {
 
     setIsSearching(true);
     try {
-      const response = await axios.get(`http://localhost:5000/api/search/activities?query=${encodeURIComponent(searchQuery)}`);
+      const response = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/search/activities?query=${encodeURIComponent(searchQuery)}`);
       setTimeout(() => {
         setIsSearching(false);
         navigate('/search-activities', {

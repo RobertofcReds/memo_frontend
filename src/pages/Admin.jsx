@@ -60,16 +60,16 @@ const Admin = () => {
             const token = localStorage.getItem('token');
 
             const [sitesRes, usersRes, regionsRes, typesRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/site', {
+                axios.get(`${process.env.REACT_APP_BACK_URL}/api/site`, {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
-                axios.get('http://localhost:5000/api/admin/users', {
+                axios.get(`${process.env.REACT_APP_BACK_URL}/api/admin/users`, {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
-                axios.get('http://localhost:5000/api/user/regions/', {
+                axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/regions/`, {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
-                axios.get('http://localhost:5000/api/type', {
+                axios.get(`${process.env.REACT_APP_BACK_URL}/api/type`, {
                     headers: { Authorization: `Bearer ${token}` }
                 })
             ]);
@@ -207,7 +207,7 @@ const Admin = () => {
 
             if (editingSite) {
                 await axios.put(
-                    `http://localhost:5000/api/admin/sites/${editingSite.id_site}`,
+                    `${process.env.REACT_APP_BACK_URL}/api/admin/sites/${editingSite.id_site}`,
                     formData,
                     {
                         headers: {
@@ -219,7 +219,7 @@ const Admin = () => {
                 setSuccess('Site mis à jour avec succès');
             } else {
                 await axios.post(
-                    'http://localhost:5000/api/admin/sites',
+                    `${process.env.REACT_APP_BACK_URL}/api/admin/sites`,
                     formData,
                     {
                         headers: {
@@ -262,7 +262,7 @@ const Admin = () => {
 
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5000/api/admin/sites/${id}`, {
+            await axios.delete(`${process.env.REACT_APP_BACK_URL}/api/admin/sites/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -561,7 +561,7 @@ const Admin = () => {
                                             <div className={styles["current-image"]}>
                                                 <p>Image actuelle:</p>
                                                 <img
-                                                    src={`http://localhost:5000${editingSite.image}`}
+                                                    src={`${process.env.REACT_APP_BACK_URL}${editingSite.image}`}
                                                     alt={editingSite.nom}
                                                     className={styles["preview-image"]}
                                                     onError={(e) => { e.target.style.display = 'none'; }}
@@ -666,7 +666,7 @@ const Admin = () => {
                                                         <div className={styles["site-info"]}>
                                                             {site.image && (
                                                                 <img
-                                                                    src={`http://localhost:5000${site.image}`}
+                                                                    src={`${process.env.REACT_APP_BACK_URL}${site.image}`}
                                                                     alt={site.nom}
                                                                     className={styles["site-thumbnail"]}
                                                                 />

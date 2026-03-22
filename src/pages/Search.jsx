@@ -953,7 +953,7 @@ const Search = () => {
                             >
                                 <div className={styles["site-image"]}>
                                     <img
-                                        src={`http://localhost:5000${site.image}`}
+                                        src={`${process.env.REACT_APP_BACK_URL}${site.image}`}
                                         alt={site.nom}
                                         onError={(e) => {
                                             e.target.src = 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';
@@ -1568,7 +1568,7 @@ const Search = () => {
                         <div className={styles["share-body"]}>
                             <div className={styles["share-preview"]}>
                                 <img
-                                    src={shareModal.image?.startsWith('http') ? shareModal.image : `http://localhost:5000${shareModal.image}`}
+                                    src={shareModal.image?.startsWith('http') ? shareModal.image : `${process.env.REACT_APP_BACK_URL}${shareModal.image}`}
                                     alt={shareModal.name}
                                     onError={(e) => {
                                         e.target.src = 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80';

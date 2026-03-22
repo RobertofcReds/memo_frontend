@@ -28,7 +28,7 @@ const ForgotPassword = () => {
         }
         try {
             // Envoie la demande de code
-            const res = await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+            const res = await axios.post(`${process.env.REACT_APP_BACK_URL}/api/auth/forgot-password`, { email });
             setSuccess(true);
             console.log(res.data);
             setToken(res.data.token);
@@ -51,7 +51,7 @@ const ForgotPassword = () => {
         }
         try {
             // Vérifie le code
-            await axios.get(`http://localhost:5000/api/auth/reset-password/${token}`);
+            await axios.get(`${process.env.REACT_APP_BACK_URL}/api/auth/reset-password/${token}`);
             setStep(3);
             setIsLoading(false);
         } catch (err) {
@@ -74,7 +74,7 @@ const ForgotPassword = () => {
             return setError('Les mots de passe ne correspondent pas');
         }
         try {
-            await axios.post(`http://localhost:5000/api/auth/reset-password/${token}`, {
+            await axios.post(`${process.env.REACT_APP_BACK_URL}/api/auth/reset-password/${token}`, {
                 password: newPassword,
             });
             setSuccess(true);
