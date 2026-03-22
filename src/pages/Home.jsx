@@ -619,7 +619,7 @@ const Home = () => {
                             <div className={styles["user-dropdown"]}>
                                 <button className={styles["auth-button-on"]}>
                                     <i className="fas fa-user-circle"></i>
-                                    <span>Mon compte</span>
+                                    <span className={styles["user-name-mobile"]}>Compte</span>
                                     <i className="fas fa-chevron-down"></i>
                                 </button>
                                 <div className={styles["dropdown-menu"]}>
@@ -649,13 +649,13 @@ const Home = () => {
                             </div>
                         ) : (
                             <>
-                                <Link to="/login" className={`${styles["auth-button"]} ${styles["secondary"]}`}>
+                                <Link to="/login" className={`${styles["auth-button"]} ${styles["secondary"]}`} title="Connexion">
                                     <i className="fas fa-sign-in-alt"></i>
-                                    Connexion
+                                    <span className={styles["auth-text"]}>Connexion</span>
                                 </Link>
-                                <Link to="/register" className={`${styles["auth-button"]} ${styles["primary"]}`}>
+                                <Link to="/register" className={`${styles["auth-button"]} ${styles["primary"]}`} title="Inscription">
                                     <i className="fas fa-user-plus"></i>
-                                    Inscription
+                                    <span className={styles["auth-text"]}>Inscription</span>
                                 </Link>
                             </>
                         )}
@@ -713,17 +713,12 @@ const Home = () => {
                                 type="submit"
                                 className={`${styles["search-button"]} ${isSearching ? styles.searching : ''}`}
                                 disabled={isSearching}
+                                title="Rechercher"
                             >
                                 {isSearching ? (
-                                    <>
-                                        <i className="fas fa-spinner fa-spin"></i>
-                                        Recherche...
-                                    </>
+                                    <i className="fas fa-spinner fa-spin"></i>
                                 ) : (
-                                    <>
-                                        <i className="fas fa-paper-plane"></i>
-                                        Explorer
-                                    </>
+                                    <i className="fas fa-paper-plane"></i>
                                 )}
                             </button>
                         </div>

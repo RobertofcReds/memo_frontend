@@ -3521,6 +3521,207 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+/* ============================================
+   STYLES CORRIGÉS POUR HEADER ET RECHERCHE
+   ============================================ */
+
+/* Boutons d'authentification en icônes sur mobile */
+@media (max-width: 768px) {
+    .auth-button {
+        padding: 8px 12px;
+        min-width: 40px;
+        justify-content: center;
+    }
+    
+    .auth-button .auth-text {
+        display: none;
+    }
+    
+    .auth-button i {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+    
+    .auth-button.primary,
+    .auth-button.secondary {
+        padding: 8px 12px;
+    }
+    
+    .auth-button-on {
+        padding: 8px 12px;
+    }
+    
+    .auth-button-on .user-name-mobile {
+        display: none;
+    }
+    
+    .auth-button-on i:first-child {
+        font-size: 1.1rem;
+        margin-right: 4px;
+    }
+    
+    .auth-button-on i:last-child {
+        font-size: 0.8rem;
+        margin-left: 0;
+    }
+}
+
+/* Pour les écrans très petits, encore plus compact */
+@media (max-width: 480px) {
+    .auth-button {
+        padding: 6px 10px;
+        min-width: 36px;
+    }
+    
+    .auth-button i {
+        font-size: 1rem;
+    }
+    
+    .auth-button-on {
+        padding: 6px 10px;
+    }
+    
+    .auth-button-on i:first-child {
+        font-size: 1rem;
+    }
+}
+
+/* Formulaire de recherche - bouton en icône */
+.search-button {
+    min-width: 54px;
+    width: 54px;
+    padding: 0;
+    justify-content: center;
+}
+
+.search-button i {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.search-button span {
+    display: none;
+}
+
+.search-button.searching i {
+    font-size: 1rem;
+}
+
+/* Ajustement du conteneur de recherche */
+.search-input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    border: 2px solid transparent;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.search-icon {
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 16px 0;
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 400;
+    min-height: 54px;
+}
+
+/* Responsive pour le formulaire de recherche sur mobile */
+@media (max-width: 768px) {
+    .search-input-container {
+        flex-direction: row;
+        border-radius: var(--border-radius-xl);
+    }
+    
+    .search-icon {
+        display: flex;
+        padding: 0 12px;
+    }
+    
+    .search-input {
+        padding: 14px 0;
+        text-align: left;
+    }
+    
+    .search-button {
+        width: 50px;
+        min-width: 50px;
+        border-radius: 0 var(--border-radius-xl) var(--border-radius-xl) 0;
+    }
+    
+    .search-button i {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-icon {
+        padding: 0 10px;
+        font-size: 0.9rem;
+    }
+    
+    .search-input {
+        padding: 12px 0;
+        font-size: 0.9rem;
+    }
+    
+    .search-button {
+        width: 45px;
+        min-width: 45px;
+    }
+    
+    .search-button i {
+        font-size: 1rem;
+    }
+}
+
+/* Pour le mode connecté - icône seulement sur mobile */
+@media (max-width: 768px) {
+    .auth-button-on span:not(i) {
+        display: none;
+    }
+    
+    .auth-button-on {
+        padding: 8px 12px;
+    }
+    
+    .auth-button-on i:first-child {
+        font-size: 1.2rem;
+        margin-right: 0;
+    }
+    
+    .auth-button-on i:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-button-on {
+        padding: 6px 10px;
+    }
+    
+    .auth-button-on i:first-child {
+        font-size: 1.1rem;
+    }
+}
+
 /* Thèmes anime */
 .home-container.cyberpunk {
     --primary-color: #00ff9d;
