@@ -1,0 +1,53 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "https://v6.exchangerate-api.com/8e90cf7b16c06916f4f6c559" ,
+  "dependencies": {
+    "@greatsumini/react-facebook-login": "^3.4.0",
+    "@react-oauth/google": "^0.12.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.11.0",
+    "clsx": "^2.1.1",
+    "facebook-login": "^1.4.1",
+    "jose": "^6.1.0",
+    "jwt-decode": "^4.0.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-google-recaptcha": "^3.1.0",
+    "react-router-dom": "^7.7.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "react-spring": "^9.7.0",
+    "framer-motion": "^10.16.0",
+    "font-awesome": "^4.7.0",
+    "lucide-react": "^0.292.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
