@@ -1,6 +1,6 @@
 
 // URL de ton API Flask
-const FLASK_API_URL = 'http://localhost:8000/api/v1';
+const FLASK_API_URL = 'https://ia-memo.onrender.com/api/v1';
 
 // Service de recommandation IA
 export const recommendationAIService = {
