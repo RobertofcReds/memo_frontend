@@ -3519,20 +3519,37 @@ h1, h2, h3, h4, h5, h6 {
 /* Pour les écrans très petits, encore plus compact */
 @media (max-width: 480px) {
     .auth-button {
-        padding: 6px 10px;
-        min-width: 36px;
+        padding: 5px 8px;
+        min-width: 35px;
     }
     
     .auth-button i {
         font-size: 1rem;
     }
+
+    .auth-button.primary,
+    .auth-button.secondary {
+        padding: 5px 8px;
+    }
     
     .auth-button-on {
-        padding: 6px 10px;
+        padding: 5px 8px;
+    }
+    
+    .auth-button-on {
+        padding: 5px 8px;
     }
     
     .auth-button-on i:first-child {
         font-size: 1rem;
+    }
+
+    .nav-container {
+        gap: 0px;
+    }
+
+    .burger-menu {
+        padding: 0px;
     }
 }
 
@@ -3677,6 +3694,14 @@ h1, h2, h3, h4, h5, h6 {
     
     .auth-button-on i:first-child {
         font-size: 1.1rem;
+    }
+
+    .nav-container {
+        gap: 0px;
+    }
+
+    .burger-menu {
+        padding: 0px;
     }
 }
 
