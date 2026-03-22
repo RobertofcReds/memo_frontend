@@ -380,7 +380,7 @@ const Regions = () => {
   const getProvinces = async (token) => {
     try {
       const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
-      const result = await axios.get('${process.env.REACT_APP_BACK_URL}/api/provinces/', config);
+      const result = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/provinces/`, config);
       setRegionProvinces(result.data);
       console.log('✅ Provinces chargées:', result.data.length);
     } catch (error) {
