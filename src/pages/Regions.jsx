@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import styles from './css/Regions.module.css';
 import logos from '../images/logo-site4.png';
 import { useNotification } from '../components/Notification/NotificationProvider';
+import { useAuth } from '../context/AuthContext';
 
 // Composant IA de recommandation (chargement différé pour performance)
 const RecommendationAI = lazy(() => import('../components/recommendation/RecommendationAI'));
@@ -50,6 +51,8 @@ const Regions = () => {
   const navigate = useNavigate();
   const heroRef = useRef(null);
   const typingRef = useRef(null);
+  const {user, logout} = useAuth();
+  
 
   // États pour les modals
   const [showMapModal, setShowMapModal] = useState(false);
@@ -140,7 +143,7 @@ const Regions = () => {
   // Vérifier si l'utilisateur est connecté et charger les données
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const userId = localStorage.getItem('userId') || localStorage.getItem('user_id');
+    const userId = user.id;
 
     setIsLoggedIn(!!token);
 
@@ -263,10 +266,7 @@ const Regions = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('user_id');
-    setIsLoggedIn(false);
+    logout();
     setFavorites([]); // Vider les favoris à la déconnexion
     navigate('/');
     showSuccess('Déconnexion réussie');
@@ -274,7 +274,7 @@ const Regions = () => {
 
   const toggleFavorite = async (regionId) => {
     const token = localStorage.getItem('token');
-    const userId = localStorage.getItem('userId') || localStorage.getItem('user_id');
+    const userId = user.id;
 
     if (!token || !userId) {
       showError('Vous devez être connecté pour ajouter aux favoris');
