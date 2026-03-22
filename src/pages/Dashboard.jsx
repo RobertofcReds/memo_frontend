@@ -402,6 +402,7 @@ const Dashboard = () => {
             const sections = document.querySelectorAll(`.${styles["anime-section"]}`);
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
+                console.log(`rect top: ${rect.top}`)
                 if (rect.top < window.innerHeight * 0.8) {
                     section.classList.add(styles.visible);
                     console.log("Must be visible")
