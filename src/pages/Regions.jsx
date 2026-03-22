@@ -247,7 +247,7 @@ const Regions = () => {
 
   const loadUserFavorites = async (userId, token) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/user/favorites-regions/${userId}`, {
+      const response = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/favorites-regions/${userId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -289,7 +289,7 @@ const Regions = () => {
     try {
       if (isCurrentlyFavorited) {
         // Supprimer une région des favoris
-        await axios.delete(`http://localhost:5000/api/user/favorites-regions/${userId}/${regionId}`, {
+        await axios.delete(`${process.env.REACT_APP_BACK_URL}/api/user/favorites-regions/${userId}/${regionId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -301,7 +301,7 @@ const Regions = () => {
       } else {
         // Ajouter une région aux favoris
         await axios.post(
-          `http://localhost:5000/api/user/favorites-regions/${userId}`,
+          `${process.env.REACT_APP_BACK_URL}/api/user/favorites-regions/${userId}`,
           { regionId: regionId },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -333,7 +333,7 @@ const Regions = () => {
   const getRegion = async (token) => {
     try {
       const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
-      const result = await axios.get('http://localhost:5000/api/user/regions/', config);
+      const result = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/regions/`, config);
       setRegions(result.data);
       console.log('✅ Régions chargées:', result.data.length);
     } catch (error) {
@@ -342,7 +342,7 @@ const Regions = () => {
       // Essayer sans token si la première tentative a échoué
       if (token) {
         try {
-          const result = await axios.get('http://localhost:5000/api/user/regions/');
+          const result = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/regions/`);
           setRegions(result.data);
           console.log('✅ Régions chargées (sans token):', result.data.length);
         } catch (fallbackError) {
@@ -358,7 +358,7 @@ const Regions = () => {
   const getTypes = async (token) => {
     try {
       const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
-      const result = await axios.get('http://localhost:5000/api/type/', config);
+      const result = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/type/`, config);
       setRegionTypes(result.data);
       console.log('✅ Types chargés:', result.data.length);
     } catch (error) {
@@ -367,7 +367,7 @@ const Regions = () => {
       // Essayer sans token si la première tentative a échoué
       if (token) {
         try {
-          const result = await axios.get('http://localhost:5000/api/type/');
+          const result = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/type/`);
           setRegionTypes(result.data);
           console.log('✅ Types chargés (sans token):', result.data.length);
         } catch (fallbackError) {
@@ -380,7 +380,7 @@ const Regions = () => {
   const getProvinces = async (token) => {
     try {
       const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
-      const result = await axios.get('http://localhost:5000/api/provinces/', config);
+      const result = await axios.get('${process.env.REACT_APP_BACK_URL}/api/provinces/', config);
       setRegionProvinces(result.data);
       console.log('✅ Provinces chargées:', result.data.length);
     } catch (error) {
@@ -389,7 +389,7 @@ const Regions = () => {
       // Essayer sans token si la première tentative a échoué
       if (token) {
         try {
-          const result = await axios.get('http://localhost:5000/api/provinces/');
+          const result = await axios.get(`${process.env.REACT_APP_BACK_URL}/api/provinces/`);
           setRegionProvinces(result.data);
           console.log('✅ Provinces chargées (sans token):', result.data.length);
         } catch (fallbackError) {
