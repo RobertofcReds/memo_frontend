@@ -206,6 +206,7 @@ const Home = () => {
     const [chatInput, setChatInput] = useState('');
     const [isChatbotTyping, setIsChatbotTyping] = useState(false);
     const [showBackToTop, setShowBackToTop] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
     const testimonialsRef = useRef(null);
     const heroRef = useRef(null);
@@ -213,7 +214,7 @@ const Home = () => {
     const chatboxRef = useRef(null);
     const chatMessagesRef = useRef(null);
     const chatInputRef = useRef(null);
-    const {logout} = useAuth()
+    const { logout } = useAuth();
 
     // Texte défilant pour l'effet anime - avec useMemo
     const typingTexts = React.useMemo(() => [
@@ -225,7 +226,6 @@ const Home = () => {
 
     // Animation du carrousel avec effet de fondu
     useEffect(() => {
-
         const token = localStorage.getItem('token');
         setIsLoggedIn(!!token);
 
@@ -276,29 +276,28 @@ const Home = () => {
             autoScrollRef.current = setInterval(() => {
                 if (!isTestimonialsHovered && testimonialsRef.current) {
                     const container = testimonialsRef.current;
-                    const cardWidth = 320; // Largeur d'une carte
+                    const cardWidth = window.innerWidth < 768 ? 280 : 320;
                     const maxScroll = container.scrollWidth - container.clientWidth;
 
                     if (container.scrollLeft >= maxScroll - 10) {
-                        // Retour au début
                         container.scrollTo({
                             left: 0,
                             behavior: 'smooth'
                         });
                         setCurrentTestimonialIndex(0);
                     } else {
-                        // Défilement vers la droite
                         const newScrollLeft = container.scrollLeft + cardWidth;
                         container.scrollTo({
                             left: newScrollLeft,
                             behavior: 'smooth'
                         });
-                        setCurrentTestimonialIndex(prev =>
-                            (prev + 1) % Math.ceil(container.scrollWidth / cardWidth)
-                        );
+                        setCurrentTestimonialIndex(prev => {
+                            const totalGroups = Math.ceil(container.scrollWidth / cardWidth);
+                            return (prev + 1) % totalGroups;
+                        });
                     }
                 }
-            }, 3000); // Défile toutes les 3 secondes
+            }, 4000);
         };
 
         startAutoScroll();
@@ -327,6 +326,17 @@ const Home = () => {
         }
     }, [chatMessages]);
 
+    // Fermer le menu mobile quand on resize au-dessus de 768px
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768 && isMobileMenuOpen) {
+                setIsMobileMenuOpen(false);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isMobileMenuOpen]);
+
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!searchQuery.trim()) return;
@@ -346,7 +356,6 @@ const Home = () => {
         } catch (error) {
             console.error('Erreur de recherche:', error);
             setIsSearching(false);
-            // Fallback vers recherche locale
             navigate('/search', {
                 state: {
                     results: popularRegions.filter(region =>
@@ -360,30 +369,23 @@ const Home = () => {
     };
 
     const handleLogout = () => {
-        logout()
+        logout();
         setIsLoggedIn(false);
         navigate('/');
+    };
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
     // Défilement manuel des témoignages
     const scrollTestimonials = (direction) => {
         if (testimonialsRef.current) {
-            const scrollAmount = 320; // Largeur d'une carte
+            const cardWidth = window.innerWidth < 768 ? 280 : 320;
             testimonialsRef.current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                left: direction === 'left' ? -cardWidth : cardWidth,
                 behavior: 'smooth'
             });
-
-            // Mettre à jour l'index actuel
-            if (direction === 'right') {
-                setCurrentTestimonialIndex(prev =>
-                    (prev + 1) % Math.ceil(testimonialsRef.current.scrollWidth / scrollAmount)
-                );
-            } else {
-                setCurrentTestimonialIndex(prev =>
-                    prev === 0 ? Math.ceil(testimonialsRef.current.scrollWidth / scrollAmount) - 1 : prev - 1
-                );
-            }
         }
     };
 
@@ -439,16 +441,11 @@ const Home = () => {
         return stars;
     };
 
-    // Fonction pour ouvrir le modal IA avec positionnement correct
+    // Fonction pour ouvrir le modal IA
     const handleOpenAI = () => {
-        // SCROLL INSTANTANÉ vers le haut
         window.scrollTo(0, 0);
-
-        // Petit délai pour s'assurer que le scroll est fait
         requestAnimationFrame(() => {
             setShowRecommendationAI(true);
-
-            // Empêcher TOUT défilement
             document.body.style.overflow = 'hidden';
             document.body.style.position = 'fixed';
             document.body.style.width = '100%';
@@ -459,8 +456,6 @@ const Home = () => {
     // Fonction pour fermer le modal IA
     const handleCloseAI = () => {
         setShowRecommendationAI(false);
-
-        // Restaurer le défilement
         document.body.style.overflow = 'auto';
         document.body.style.position = '';
         document.body.style.width = '';
@@ -481,7 +476,6 @@ const Home = () => {
         e.preventDefault();
         if (!chatInput.trim()) return;
 
-        // Ajouter le message de l'utilisateur
         const userMessage = {
             id: chatMessages.length + 1,
             text: chatInput,
@@ -493,7 +487,6 @@ const Home = () => {
         setChatInput('');
         setIsChatbotTyping(true);
 
-        // Simulation de réponse du bot
         setTimeout(() => {
             const responses = [
                 "Je comprends votre demande. Pour vous aider à trouver les meilleures destinations à Madagascar, je vous recommande de visiter notre section 'Destinations' où vous trouverez des informations détaillées sur chaque région.",
@@ -526,7 +519,6 @@ const Home = () => {
         setChatMessages(prev => [...prev, userMessage]);
         setIsChatbotTyping(true);
 
-        // Réponses spécifiques selon l'option
         setTimeout(() => {
             let response = "";
             switch (option) {
@@ -583,27 +575,34 @@ const Home = () => {
                 </div>
 
                 <nav className={styles["nav-container"]}>
-                    <div className={styles["nav-links"]}>
-                        <Link to="/search" className={styles["nav-link"]}>
+                    <div className={`${styles["nav-links"]} ${isMobileMenuOpen ? styles.active : ''}`}>
+                        <Link to="/search" className={styles["nav-link"]} onClick={() => setIsMobileMenuOpen(false)}>
                             <i className="fas fa-search"></i>
                             Sites
                         </Link>
-                        <Link to="/regions" className={styles["nav-link"]}>
+                        <Link to="/regions" className={styles["nav-link"]} onClick={() => setIsMobileMenuOpen(false)}>
                             <i className="fas fa-map-marked-alt"></i>
                             Destinations
                         </Link>
-                        <Link to="/activities" className={styles["nav-link"]}>
+                        <Link to="/activities" className={styles["nav-link"]} onClick={() => setIsMobileMenuOpen(false)}>
                             <i className="fas fa-hiking"></i>
                             Activités
                         </Link>
-                        <Link to="/blog" className={styles["nav-link"]}>
+                        <Link to="/blog" className={styles["nav-link"]} onClick={() => setIsMobileMenuOpen(false)}>
                             <i className="fas fa-book-open"></i>
                             Conseils
                         </Link>
-                        <Link to="/about" className={styles["nav-link"]}>
+                        <Link to="/about" className={styles["nav-link"]} onClick={() => setIsMobileMenuOpen(false)}>
                             <i className="fas fa-info-circle"></i>
                             À propos
                         </Link>
+                    </div>
+
+                    {/* Menu Burger pour mobile */}
+                    <div className={`${styles["burger-menu"]} ${isMobileMenuOpen ? styles.active : ''}`} onClick={toggleMobileMenu}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
 
                     <div className={styles["auth-section"]}>
@@ -767,7 +766,6 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Floating elements anime */}
                 <div className={styles["floating-elements"]}>
                     <div className={styles["floating-leaf"]}></div>
                     <div className={styles["floating-baobab"]}></div>
@@ -919,7 +917,6 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            {/* Effets anime pour la carte */}
                             <div className={styles["card-glow"]}></div>
                             <div className={styles["card-sparkles"]}></div>
                         </div>
@@ -970,7 +967,7 @@ const Home = () => {
                     >
                         {testimonials.map((testimonial, index) => (
                             <div
-                                key={`testimonial-${testimonial.id}-${index}`} // ← Clé unique
+                                key={`testimonial-${testimonial.id}-${index}`}
                                 className={styles["testimonial-card"]}
                                 data-index={index}
                             >
@@ -997,7 +994,6 @@ const Home = () => {
                                     </div>
                                 </div>
 
-                                {/* Effets anime */}
                                 <div className={styles["testimonial-glow"]}></div>
                                 <div className={styles["testimonial-sparkle"]}></div>
                             </div>
@@ -1015,16 +1011,15 @@ const Home = () => {
 
                 {/* Indicateurs de pagination */}
                 <div className={styles["testimonials-pagination"]}>
-                    {testimonials.slice(0, Math.ceil(testimonials.length / 3)).map((_, index) => (
+                    {testimonials.slice(0, Math.ceil(testimonials.length / (window.innerWidth < 768 ? 1 : 3))).map((_, index) => (
                         <button
                             key={index}
-                            className={`${styles["pagination-dot"]} ${index === currentTestimonialIndex ? styles.active : ''
-                                }`}
+                            className={`${styles["pagination-dot"]} ${index === currentTestimonialIndex ? styles.active : ''}`}
                             onClick={() => {
                                 if (testimonialsRef.current) {
-                                    const cardWidth = 320; // Largeur d'une carte
+                                    const cardWidth = window.innerWidth < 768 ? 280 : 320;
                                     testimonialsRef.current.scrollTo({
-                                        left: index * cardWidth * 3,
+                                        left: index * cardWidth * (window.innerWidth < 768 ? 1 : 3),
                                         behavior: 'smooth'
                                     });
                                     setCurrentTestimonialIndex(index);
@@ -1036,8 +1031,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* CTA Section améliorée */}
-            {/* Section CTA conditionnelle - REMPLACER TOUTE LA SECTION */}
+            {/* CTA Section conditionnelle */}
             {!isLoggedIn ? (
                 <section className={styles["cta-section"]}>
                     <div className={styles["cta-content"]}>
@@ -1192,7 +1186,7 @@ const Home = () => {
                                 <i className="fas fa-envelope"></i>
                                 Restez informé
                             </h4>
-                            <form className={styles["newsletter-form"]}>
+                            <form className={styles["newsletter-form"]} onSubmit={(e) => e.preventDefault()}>
                                 <input
                                     type="email"
                                     placeholder="Votre email"
@@ -1234,7 +1228,6 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Animation footer */}
                 <div className={styles["footer-wave"]}></div>
                 <div className={styles["footer-stars"]}>
                     {[...Array(20)].map((_, i) => (
@@ -1299,7 +1292,7 @@ const Home = () => {
                                         <div className={styles["message-options"]}>
                                             {message.options.map((option, idx) => (
                                                 <button
-                                                    key={`option-${message.id}-${idx}`} // ← Clé unique
+                                                    key={`option-${message.id}-${idx}`}
                                                     className={styles["option-button"]}
                                                     onClick={() => handleQuickOptionClick(option)}
                                                 >
