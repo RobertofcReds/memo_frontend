@@ -72,7 +72,7 @@ const RecommendationAI = ({ onClose }) => {
         setLoading(true);
         try {
             // Simulation d'appel API IA
-            const response = await axios.post('http://localhost:8000/api/v1/itineraries/generate', {
+            const response = await axios.post(`https://ia-memo.onrender.com/api/v1/itineraries/generate`, {
                 userPreferences
             });
 
