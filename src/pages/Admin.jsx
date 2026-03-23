@@ -72,10 +72,10 @@ const Admin = () => {
                 axios.get(`${process.env.REACT_APP_BACK_URL}/api/type`, {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
-                axios.get(`${process.env.REACT_APP_BACK_URL}/api/all-reviews`, {
+                axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/all-reviews`, {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
-                axios.get(`${process.env.REACT_APP_BACK_URL}/api/all-favorites`, {
+                axios.get(`${process.env.REACT_APP_BACK_URL}/api/user/all-favorites`, {
                     headers: { Authorization: `Bearer ${token}` }
                 })
             ]);
