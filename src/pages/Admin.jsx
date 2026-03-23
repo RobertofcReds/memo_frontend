@@ -16,8 +16,8 @@ const Admin = () => {
     const [activeTab, setActiveTab] = useState('sites');
     const [sites, setSites] = useState([]);
     const [users, setUsers] = useState([]);
-    const [favorites] = useState([]); // Gardé car utilisé dans dashboardStats
-    const [reviews] = useState([]); // Gardé car utilisé dans dashboardStats
+    const [favorites, setFavorites] = useState([]); // Gardé car utilisé dans dashboardStats
+    const [reviews, setReviews] = useState([]); // Gardé car utilisé dans dashboardStats
     const [isLoading, setIsLoading] = useState(true);
     const [editingSite, setEditingSite] = useState(null);
     const [showSiteForm, setShowSiteForm] = useState(false);
@@ -59,7 +59,7 @@ const Admin = () => {
             setIsLoading(true);
             const token = localStorage.getItem('token');
 
-            const [sitesRes, usersRes, regionsRes, typesRes] = await Promise.all([
+            const [sitesRes, usersRes, regionsRes, typesRes, reviewsRes, favoritesRes] = await Promise.all([
                 axios.get(`${process.env.REACT_APP_BACK_URL}/api/site`, {
                     headers: { Authorization: `Bearer ${token}` }
                 }),
@@ -71,6 +71,12 @@ const Admin = () => {
                 }),
                 axios.get(`${process.env.REACT_APP_BACK_URL}/api/type`, {
                     headers: { Authorization: `Bearer ${token}` }
+                }),
+                axios.get(`${process.env.REACT_APP_BACK_URL}/api/all-reviews`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                }),
+                axios.get(`${process.env.REACT_APP_BACK_URL}/api/all-favorites`, {
+                    headers: { Authorization: `Bearer ${token}` }
                 })
             ]);
 
@@ -78,6 +84,8 @@ const Admin = () => {
             setUsers(usersRes.data);
             setRegions(regionsRes.data);
             setSiteTypes(typesRes.data);
+            setReviews(reviewsRes.data);
+            setFavorites(favoritesRes.data);
         } catch (err) {
             setError('Erreur lors du chargement des données');
             console.error(err);
