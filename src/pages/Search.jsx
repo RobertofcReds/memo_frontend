@@ -9,6 +9,7 @@ import TripButton from './TripButton';
 import { useNotification } from '../components/Notification/NotificationProvider';
 import { useAuth } from '../context/AuthContext';
 import { formattedGermanCurrency } from '../utils/basicFunction';
+import { Loader } from '../components/Loader';
 
 // Composant IA de recommandation (chargement différé)
 const RecommendationAI = React.lazy(() => import('../components/recommendation/RecommendationAI'));
