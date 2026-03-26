@@ -3458,11 +3458,6 @@ h1, h2, h3, h4, h5, h6 {
         padding-right: max(20px, env(safe-area-inset-right));
     }
     
-    .chatbox-container {
-        right: max(15px, env(safe-area-inset-right));
-        bottom: max(20px, env(safe-area-inset-bottom));
-    }
-    
     .back-to-top {
         right: max(15px, env(safe-area-inset-right));
         bottom: max(20px, env(safe-area-inset-bottom));
