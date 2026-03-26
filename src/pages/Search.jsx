@@ -637,10 +637,7 @@ const Search = () => {
 
     if (isLoading) {
         return (
-            <div className={styles["loading-container"]}>
-                <div className={styles["loading-spinner"]}></div>
-                <p>Chargement des sites touristiques...</p>
-            </div>
+            <Loader />
         );
     }
 
