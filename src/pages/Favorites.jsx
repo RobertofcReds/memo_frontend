@@ -7,6 +7,7 @@ import logos from '../images/logo-site4.png';
 import axios from 'axios';
 import { useNotification } from '../components/Notification/NotificationProvider';
 import { useAuth } from '../context/AuthContext';
+import { Loader } from '../components/Loader';
 
 // Composant IA de recommandation (chargement différé)
 const RecommendationAI = React.lazy(() => import('../components/recommendation/RecommendationAI'));
@@ -525,10 +526,7 @@ const Favorites = () => {
 
     if (isLoading) {
         return (
-            <div className={styles["loading-container"]}>
-                <div className={styles["loading-spinner"]}></div>
-                <p>Chargement de vos favoris...</p>
-            </div>
+            <Loader />
         );
     }
 

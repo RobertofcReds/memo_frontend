@@ -7,6 +7,7 @@ import logos from '../images/logo-site4.png';
 import { convertCurrency, getMultipleRates } from '../utils/currencyService';
 import { useNotification } from '../components/Notification/NotificationProvider';
 import { useAuth } from '../context/AuthContext';
+import { Loader } from '../components/Loader';
 
 const Preferences = () => {
     const [preferences, setPreferences] = useState({
@@ -410,19 +411,7 @@ const Preferences = () => {
 
     if (isLoading) {
         return (
-            <div className={`${styles["preferences-page"]} ${styles[animeTheme]}`}>
-                <div className={styles["loading-container"]}>
-                    <div className={styles["loading-animation"]}>
-                        <div className={styles["loading-spinner"]}></div>
-                        <div className={styles["loading-dots"]}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                    <p className={styles["loading-text"]}>Chargement de vos préférences...</p>
-                </div>
-            </div>
+            <Loader />
         );
     }
 

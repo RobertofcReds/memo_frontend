@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import logos from '../images/logo-site4.png';
 import { useNotification } from '../components/Notification/NotificationProvider';
 import { useAuth } from '../context/AuthContext';
+import { Loader } from '../components/Loader';
 
 // Données pour les animations de l'historique
 const historyAnimations = {
@@ -516,10 +517,7 @@ const History = () => {
 
     if (isLoading) {
         return (
-            <div className={styles["loading-container"]}>
-                <div className={styles["loading-spinner"]}></div>
-                <p>Chargement de votre historique...</p>
-            </div>
+            <Loader />
         );
     }
 

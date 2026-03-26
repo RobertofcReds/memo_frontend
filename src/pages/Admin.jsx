@@ -11,6 +11,7 @@ import {
     SimpleBarChart,
     StatCard
 } from '../components/SimpleCharts.jsx';
+import { Loader } from '../components/Loader.jsx';
 
 const Admin = () => {
     const [activeTab, setActiveTab] = useState('sites');
@@ -305,10 +306,7 @@ const Admin = () => {
 
     if (isLoading) {
         return (
-            <div className={styles["admin-loading"]}>
-                <div className={styles["loading-spinner"]}></div>
-                <p>Chargement de l'interface administrateur...</p>
-            </div>
+            <Loader />
         );
     }
 
