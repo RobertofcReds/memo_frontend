@@ -132,7 +132,7 @@ const Register = () => {
         setIsLoading(true);
 
         try {
-            await axios.post(`${process.env.REACT_APP_BACK_URL}/api/auth/register`, {
+            await axios.post(`http://localhost:5000/api/auth/register`, {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,
@@ -142,6 +142,7 @@ const Register = () => {
             setSuccess(true);
             setTimeout(() => navigate('/login'), 1500);
         } catch (err) {
+            console.log("err: ", err)
             setError(err.response?.data?.message || "Erreur d'inscription");
             setIsLoading(false);
         }
