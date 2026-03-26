@@ -3565,7 +3565,7 @@ img {
 .chatbox-container {
     position: fixed;
     bottom: 100px;
-    right: 20px;
+    right: 15px;
     z-index: 1000;
     display: flex;
     flex-direction: column;
