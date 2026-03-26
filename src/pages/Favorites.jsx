@@ -783,13 +783,13 @@ const Favorites = () => {
                     <div className={styles["hero-overlay"]}></div>
                     <div className={styles["hero-slides"]}>
                         <div className={styles["hero-slide"]} style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
+                            backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/d/d7/Baie_de_dune_03.jpg')`
                         }}></div>
                         <div className={styles["hero-slide"]} style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`
+                            backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/6/68/Piscine_Antsirabe_2012.jpg')`
                         }}></div>
                         <div className={styles["hero-slide"]} style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`
+                            backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/a/a5/Mahajanga_Corniche.jpg')`
                         }}></div>
                     </div>
 

@@ -524,13 +524,13 @@ const Reviews = () => {
                     <div className={styles["hero-overlay"]}></div>
                     <div className={styles["hero-slides"]}>
                         <div className={styles["hero-slide"]} style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`
+                            backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/4/48/Lemurien_1023a.JPG')`
                         }}></div>
                         <div className={styles["hero-slide"]} style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
+                            backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/9/91/SALT_Ivory_Avaratra-_Fianarantsoa.jpg')`
                         }}></div>
                         <div className={styles["hero-slide"]} style={{
-                            backgroundImage: `url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`
+                            backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/4/4d/Tamatave.jpg')`
                         }}></div>
                     </div>
 
