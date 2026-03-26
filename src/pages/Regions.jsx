@@ -143,7 +143,7 @@ const Regions = () => {
   // Vérifier si l'utilisateur est connecté et charger les données
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const userId = user.id;
+    const userId = user?.id;
 
     setIsLoggedIn(!!token);
 

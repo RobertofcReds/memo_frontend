@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './css/Dashboard.module.css';
+import styles from '../pages/css/Dashboard.module.css';
 export const Loader = () => {
     return (
             <div className={styles["dashboard-loading"]}>
