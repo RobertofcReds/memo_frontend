@@ -132,7 +132,7 @@ const Register = () => {
         setIsLoading(true);
 
         try {
-            await axios.post('${process.env.REACT_APP_BACK_URL}/api/auth/register', {
+            await axios.post(`${process.env.REACT_APP_BACK_URL}/api/auth/register`, {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,
