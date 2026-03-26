@@ -121,6 +121,7 @@ const Search = () => {
     // Récupération du token et userId depuis le contexte ou localStorage
     const token = localStorage.getItem('token');
     const userId = user?.id || localStorage.getItem('userId');
+    const currency = user?.currencyRate || localStorage.getItem('currencyRate')
 
     // État de connexion synchronisé avec le contexte
     const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
@@ -1002,7 +1003,7 @@ const Search = () => {
                                             <i className="fas fa-map-marker-alt"></i> {getRegionName(site.id_region)}
                                         </span>
                                         <span className={styles["cost"]}>
-                                            <i className="fas fa-tag"></i> {formattedGermanCurrency(site.cout_estime * (user?.currencyRate || 1), user?.currency || 'EUR')}
+                                            <i className="fas fa-tag"></i> {formattedGermanCurrency(site.cout_estime * currency, user?.currency || 'EUR')}
                                         </span>
                                     </div>
                                     <p className={styles["description"]}>
