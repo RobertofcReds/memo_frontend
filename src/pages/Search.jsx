@@ -750,13 +750,19 @@ const Search = () => {
                 <div className={styles["hero-overlay"]}></div>
                 <div className={styles["hero-slides"]}>
                     <div className={styles["hero-slide"]} style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`
+                        backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/b/b2/Nosy_Iranja_beaches_19.jpg')`
                     }}></div>
                     <div className={styles["hero-slide"]} style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`
+                        backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/1/1f/Lokobe.jpg')`
                     }}></div>
                     <div className={styles["hero-slide"]} style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`
+                        backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/e/ee/Avenue_of_the_Baobabs_at_Sunset.jpg')`
+                    }}></div>
+                    <div className={styles["hero-slide"]} style={{
+                        backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/5/5e/Voahary_Malagasy.jpg')`
+                    }}></div>
+                    <div className={styles["hero-slide"]} style={{
+                        backgroundImage: `url('https://upload.wikimedia.org/wikipedia/commons/e/e1/Sainte_Marie_2.jpg')`
                     }}></div>
                 </div>
 
